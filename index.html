@@ -1,120 +1,1132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Nails & Spa | Fairfield, CA Nail Salon</title>
-    <!-- LINK TO EXTERNAL CSS FILE -->
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* GOOGLE MAPS EMBED SECTION */
-        .map-section {
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC Nails &amp; Spa — Fairfield, CA</title>
+<meta name="description" content="MC Nails & Spa in Fairfield, CA. Manicures, pedicures, dip powder, full sets, waxing, and nail art in a clean, calming space. Walk-ins welcome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EF;
+    --cream-deep:#F5EDE2;
+    --blush:#F4DAD6;
+    --blush-soft:#FBEDE9;
+    --beige:#E9DCC7;
+    --rose-gold:#C0925C;
+    --rose-gold-soft:#D8B78A;
+    --rose:#BD7F72;
+    --rose-deep:#9C5F55;
+    --charcoal:#2B2622;
+    --charcoal-soft:#6B6058;
+    --line:#E4D6C6;
+    --white:#FFFFFF;
+    --shadow: 0 20px 50px -20px rgba(43,38,34,0.25);
+    --radius: 2px;
+  }
 
-        .map-container {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            margin-top: 1.5rem;
-        }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--charcoal);
+    letter-spacing:-0.01em;
+  }
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  section{position:relative;}
+  ::selection{background:var(--rose-gold-soft);color:var(--charcoal);}
+  :focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;}
 
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            display: block;
-        }
+  /* Eyebrow label */
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--rose-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;
+    background:var(--rose-deep);
+    display:inline-block;
+  }
 
-        @media (max-width: 768px) {
-            .map-container iframe {
-                height: 300px; /* Adjust height for smaller mobile screens */
-            }
-        }
-    </style>
+  /* Signature brushstroke underline */
+  .brush-underline{
+    display:block;
+    width:180px;
+    height:18px;
+    margin-top:6px;
+    overflow:visible;
+  }
+  .brush-underline path{
+    fill:none;
+    stroke:var(--rose-gold);
+    stroke-width:6;
+    stroke-linecap:round;
+    stroke-dasharray:260;
+    stroke-dashoffset:260;
+    transition:stroke-dashoffset 1.1s cubic-bezier(.3,.8,.3,1);
+  }
+  .in-view .brush-underline path{stroke-dashoffset:0;}
+  .center .brush-underline{margin-left:auto;margin-right:auto;}
+
+  .section-head{margin-bottom:52px;}
+  .section-head.center{text-align:center;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);margin-top:14px;}
+  .section-head p{
+    color:var(--charcoal-soft);
+    font-size:16.5px;
+    max-width:560px;
+    margin-top:16px;
+  }
+  .section-head.center p{margin-left:auto;margin-right:auto;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 30px;
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    border-radius:var(--radius);
+    border:1px solid transparent;
+    overflow:hidden;
+    z-index:0;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--charcoal);
+    color:var(--cream);
+  }
+  .btn-primary span{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;}
+  .btn-primary::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(100deg,var(--rose-deep),var(--rose-gold));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .5s cubic-bezier(.4,0,.2,1);
+    z-index:1;
+  }
+  .btn-primary:hover::before{transform:scaleX(1);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--charcoal);
+    color:var(--charcoal);
+    transition:background .35s ease, color .35s ease, border-color .35s ease;
+  }
+  .btn-outline:hover{background:var(--charcoal);color:var(--cream);}
+  .btn-outline.light{border-color:rgba(251,246,239,0.5);color:var(--cream);}
+  .btn-outline.light:hover{background:var(--cream);color:var(--charcoal);}
+  .btn-sm{padding:11px 20px;font-size:13px;}
+
+  /* ---------- Top utility bar ---------- */
+  .topbar{
+    background:var(--charcoal);
+    color:var(--cream-deep);
+    font-size:12.5px;
+    letter-spacing:0.03em;
+  }
+  .topbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:9px;
+    padding-bottom:9px;
+    gap:16px;
+  }
+  .topbar a{opacity:.9;}
+  .topbar a:hover{opacity:1;color:var(--rose-gold-soft);}
+  .topbar .tb-left{display:flex;gap:22px;align-items:center;}
+  .topbar .dot{color:var(--rose-gold);}
+
+  /* ---------- Nav ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(251,246,239,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    font-weight:500;
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+  }
+  .logo em{
+    font-style:italic;
+    color:var(--rose-deep);
+  }
+  .logo small{
+    font-family:'Manrope',sans-serif;
+    font-size:9.5px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--charcoal-soft);
+    margin-top:5px;
+    font-weight:600;
+  }
+  .nav-links{
+    display:flex;
+    gap:34px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:13.5px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    position:relative;
+    padding:6px 0;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;left:0;bottom:0;
+    width:0;height:1.5px;
+    background:var(--rose-deep);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .call-pill{
+    display:flex;align-items:center;gap:8px;
+    font-weight:700;font-size:13.5px;
+    color:var(--charcoal);
+  }
+  .call-pill svg{color:var(--rose-deep);}
+  .menu-toggle{
+    display:none;
+    background:none;border:none;
+    width:34px;height:24px;
+    position:relative;
+  }
+  .menu-toggle span{
+    position:absolute;left:0;right:0;height:2px;background:var(--charcoal);
+    transition:.3s ease;
+  }
+  .menu-toggle span:nth-child(1){top:0;}
+  .menu-toggle span:nth-child(2){top:11px;}
+  .menu-toggle span:nth-child(3){top:22px;}
+  .menu-toggle.active span:nth-child(1){transform:translateY(11px) rotate(45deg);}
+  .menu-toggle.active span:nth-child(2){opacity:0;}
+  .menu-toggle.active span:nth-child(3){transform:translateY(-11px) rotate(-45deg);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 90px;
+    overflow:hidden;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+  .hero-copy .eyebrow{margin-bottom:22px;}
+  .hero-copy h1{
+    font-size:clamp(38px,5.6vw,64px);
+    line-height:1.06;
+    letter-spacing:-0.015em;
+  }
+  .hero-copy h1 em{font-style:italic;color:var(--rose-deep);font-weight:400;}
+  .hero-copy p.lede{
+    margin-top:24px;
+    font-size:17.5px;
+    color:var(--charcoal-soft);
+    max-width:460px;
+  }
+  .hero-cta{
+    display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;
+  }
+  .hero-meta{
+    display:flex;
+    gap:34px;
+    margin-top:46px;
+    padding-top:30px;
+    border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .hero-meta div{max-width:190px;}
+  .hero-meta .k{
+    font-family:'Fraunces',serif;
+    font-size:15px;
+    font-weight:500;
+    color:var(--rose-deep);
+  }
+  .hero-meta .v{font-size:13.5px;color:var(--charcoal-soft);margin-top:4px;}
+
+  .hero-art{position:relative;height:560px;}
+  .hero-art .img-a{
+    position:absolute;
+    top:0;right:0;
+    width:78%;height:74%;
+    border-radius:6px 120px 6px 6px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .hero-art .img-a img{width:100%;height:100%;object-fit:cover;}
+  .hero-art .img-b{
+    position:absolute;
+    bottom:0;left:0;
+    width:56%;height:48%;
+    border-radius:120px 6px 6px 6px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:6px solid var(--cream);
+  }
+  .hero-art .img-b img{width:100%;height:100%;object-fit:cover;}
+  .hero-art .blob{
+    position:absolute;
+    top:38%;left:-6%;
+    width:220px;height:220px;
+    background:var(--blush);
+    border-radius:50%;
+    z-index:-1;
+    filter:blur(2px);
+  }
+  .hero-art .ring{
+    position:absolute;
+    bottom:8%;right:6%;
+    width:110px;height:110px;
+    border:2px solid var(--rose-gold);
+    border-radius:50%;
+    z-index:3;
+  }
+  .hero-badge{
+    position:absolute;
+    top:16px;left:-10px;
+    background:var(--cream);
+    box-shadow:var(--shadow);
+    border-radius:50%;
+    width:108px;height:108px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    font-family:'Fraunces',serif;
+    font-size:12.5px;
+    color:var(--rose-deep);
+    line-height:1.25;
+    z-index:4;
+    animation:spin 22s linear infinite;
+  }
+  .hero-badge .core{
+    animation:spinback 22s linear infinite;
+    padding:10px;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes spinback{to{transform:rotate(-360deg);}}
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--charcoal);
+    color:var(--cream-deep);
+    padding:14px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .strip-track{
+    display:inline-flex;
+    animation:marquee 26s linear infinite;
+  }
+  .strip-track span{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:16px;
+    padding:0 34px;
+    color:var(--rose-gold-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:34px;
+  }
+  .strip-track span::after{content:"✦";color:var(--charcoal-soft);font-style:normal;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- Services ---------- */
+  .services{padding:110px 0;}
+  .tabs{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:0;
+  }
+  .tab-btn{
+    background:none;border:none;
+    padding:14px 6px;
+    margin-right:26px;
+    font-size:14.5px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    color:var(--charcoal-soft);
+    position:relative;
+    text-transform:uppercase;
+    font-size:12.5px;
+  }
+  .tab-btn::after{
+    content:"";
+    position:absolute;left:0;right:0;bottom:-1px;height:2px;
+    background:var(--rose-deep);
+    transform:scaleX(0);
+    transition:transform .3s ease;
+  }
+  .tab-btn.active{color:var(--charcoal);}
+  .tab-btn.active::after{transform:scaleX(1);}
+
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;animation:fadeUp .5s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  .menu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 60px;
+  }
+  .menu-item{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    padding:22px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .menu-item .mi-name{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:500;
+  }
+  .menu-item .mi-desc{
+    font-size:13.5px;
+    color:var(--charcoal-soft);
+    margin-top:5px;
+    max-width:320px;
+  }
+  .menu-item .mi-price{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--rose-deep);
+    white-space:nowrap;
+    padding-top:2px;
+  }
+  .menu-note{
+    margin-top:36px;
+    font-size:13px;
+    color:var(--charcoal-soft);
+    font-style:italic;
+  }
+
+  /* ---------- Why choose us ---------- */
+  .why{
+    background:var(--blush-soft);
+    padding:110px 0;
+  }
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+    margin-top:10px;
+  }
+  .why-card{
+    background:var(--cream);
+    padding:34px 26px;
+    border-radius:4px;
+    border:1px solid var(--line);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .why-card .num{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--rose-gold);
+  }
+  .why-card h3{
+    font-size:19px;
+    margin-top:16px;
+  }
+  .why-card p{
+    font-size:13.8px;
+    color:var(--charcoal-soft);
+    margin-top:10px;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery{padding:110px 0;}
+  .filter-row{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .filter-btn{
+    padding:9px 20px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    border-radius:30px;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    color:var(--charcoal-soft);
+    transition:all .3s ease;
+  }
+  .filter-btn.active, .filter-btn:hover{
+    background:var(--charcoal);
+    color:var(--cream);
+    border-color:var(--charcoal);
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:190px;
+    gap:14px;
+  }
+  .g-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .g-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s ease;
+  }
+  .g-item:hover img{transform:scale(1.08);}
+  .g-item .g-tag{
+    position:absolute;left:12px;bottom:12px;
+    background:rgba(43,38,34,0.75);
+    color:var(--cream);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    padding:6px 12px;
+    border-radius:20px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:all .35s ease;
+  }
+  .g-item:hover .g-tag{opacity:1;transform:translateY(0);}
+  .g-item.tall{grid-row:span 2;}
+  .g-item.hide{display:none;}
+
+  /* ---------- Testimonials ---------- */
+  .reviews{
+    background:var(--charcoal);
+    color:var(--cream);
+    padding:110px 0;
+    position:relative;
+  }
+  .reviews .section-head h2{color:var(--cream);}
+  .reviews .section-head p{color:#B8AFA6;}
+  .reviews .eyebrow{color:var(--rose-gold-soft);}
+  .reviews .eyebrow::before{background:var(--rose-gold-soft);}
+  .carousel{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    text-align:center;
+    min-height:230px;
+  }
+  .review-slide{
+    display:none;
+    animation:fadeUp .6s ease both;
+  }
+  .review-slide.active{display:block;}
+  .stars{color:var(--rose-gold-soft);font-size:18px;letter-spacing:4px;}
+  .review-quote{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:clamp(19px,2.6vw,26px);
+    line-height:1.5;
+    margin-top:22px;
+  }
+  .review-author{
+    margin-top:22px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:#9A9088;
+  }
+  .review-author strong{color:var(--rose-gold-soft);font-family:'Manrope',sans-serif;}
+  .carousel-dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:38px;
+  }
+  .carousel-dots button{
+    width:8px;height:8px;border-radius:50%;
+    background:#544B44;border:none;
+    transition:all .3s ease;
+  }
+  .carousel-dots button.active{background:var(--rose-gold-soft);width:22px;border-radius:5px;}
+
+  /* ---------- Contact ---------- */
+  .contact{padding:110px 0;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .map-wrap{
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    height:340px;
+    border:1px solid var(--line);
+  }
+  .map-wrap iframe{width:100%;height:100%;border:0;}
+  .info-card{
+    margin-top:26px;
+    background:var(--blush-soft);
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:4px;
+  }
+  .info-row{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .info-row:last-child{border-bottom:none;}
+  .info-row svg{color:var(--rose-deep);flex-shrink:0;margin-top:2px;}
+  .info-row .label{font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--charcoal-soft);}
+  .info-row .value{font-weight:600;font-size:14.5px;margin-top:2px;}
+
+  .hours-table{width:100%;border-collapse:collapse;margin-top:8px;}
+  .hours-table td{
+    padding:11px 0;
+    font-size:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .hours-table td:last-child{text-align:right;font-weight:600;color:var(--rose-deep);}
+  .hours-table tr.today td{color:var(--charcoal);font-weight:700;}
+
+  .form-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:36px;
+    border-radius:4px;
+  }
+  .form-row{margin-bottom:18px;}
+  .form-row label{
+    display:block;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--charcoal-soft);
+    margin-bottom:8px;
+    font-weight:700;
+  }
+  .form-row input, .form-row select, .form-row textarea{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:var(--cream-deep);
+    font-family:'Manrope',sans-serif;
+    font-size:14.5px;
+    color:var(--charcoal);
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+    border-color:var(--rose-gold);
+    background:var(--white);
+    outline:none;
+  }
+  .form-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-card button{width:100%;justify-content:center;margin-top:6px;}
+  .form-success{
+    display:none;
+    margin-top:14px;
+    font-size:13.5px;
+    color:var(--rose-deep);
+    font-weight:600;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--charcoal);
+    color:#B8AFA6;
+    padding:70px 0 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+    gap:40px;
+    padding-bottom:50px;
+    border-bottom:1px solid #443C36;
+  }
+  .footer-logo{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    color:var(--cream);
+  }
+  .footer-logo em{color:var(--rose-gold-soft);font-style:italic;}
+  .footer-grid p{font-size:13.5px;margin-top:14px;line-height:1.7;max-width:280px;}
+  .footer-grid h4{
+    color:var(--cream);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-family:'Manrope',sans-serif;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+  .footer-grid ul li{margin-bottom:11px;font-size:13.8px;}
+  .footer-grid ul li a:hover{color:var(--rose-gold-soft);}
+  .social-row{display:flex;gap:12px;margin-top:6px;}
+  .social-row a{
+    width:36px;height:36px;border:1px solid #544B44;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .3s ease;
+  }
+  .social-row a:hover{background:var(--rose-gold-soft);border-color:var(--rose-gold-soft);color:var(--charcoal);}
+  .emergency-line{
+    margin-top:20px;
+    font-size:13px;
+  }
+  .emergency-line strong{display:block;color:var(--cream);font-size:15px;margin-top:4px;}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 0;
+    font-size:12.5px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .mobile-cta-bar{
+    display:none;
+    position:fixed;
+    bottom:0;left:0;right:0;
+    z-index:200;
+    background:var(--cream);
+    border-top:1px solid var(--line);
+    box-shadow:0 -10px 30px rgba(0,0,0,0.08);
+  }
+  .mobile-cta-bar .row{
+    display:flex;
+  }
+  .mobile-cta-bar a{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:15px 10px;
+    font-size:13px;
+    font-weight:700;
+  }
+  .mobile-cta-bar a.call{background:var(--rose-deep);color:var(--cream);}
+  .mobile-cta-bar a.dir{background:var(--charcoal);color:var(--cream);}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero .container{grid-template-columns:1fr;gap:50px;}
+    .hero-art{height:420px;order:-1;}
+    .menu-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:760px){
+    .topbar{display:none;}
+    .nav-links{
+      position:fixed;
+      top:0;right:-100%;
+      width:78%;max-width:340px;
+      height:100vh;
+      background:var(--cream);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:100px 34px 34px;
+      gap:26px;
+      transition:right .4s ease;
+      box-shadow:-20px 0 40px rgba(0,0,0,0.1);
+    }
+    .nav-links.open{right:0;}
+    .nav-links a{font-size:16px;}
+    .call-pill{display:none;}
+    .menu-toggle{display:block;}
+    .hero{padding:44px 0 60px;}
+    .hero-badge{display:none;}
+    .hero-meta{gap:22px;}
+    .why-grid{grid-template-columns:1fr 1fr;}
+    .why-card{padding:24px 18px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+    .footer-grid{grid-template-columns:1fr;gap:36px;}
+    .footer-bottom{flex-direction:column;text-align:center;}
+    body{padding-bottom:60px;}
+    .mobile-cta-bar{display:block;}
+    .form-two{grid-template-columns:1fr;}
+    .section-head p{max-width:100%;}
+  }
+  @media (max-width:480px){
+    .why-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
 </head>
 <body>
 
-    <!-- NAVIGATION HEADER -->
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">MC Nails & Spa</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="services.html">Services & Pricing</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="policies.html">Policies</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="services.html#book-online" class="btn-book">Book Now</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="topbar">
+  <div class="container">
+    <div class="tb-left">
+      <a href="tel:7074292205">(707) 429-2205</a>
+      <span class="dot">✦</span>
+      <span>1916 N Texas St, Fairfield, CA 94533</span>
+    </div>
+    <div id="topbarStatus">Mon–Thu 10–6 · Fri–Sat 9–6 · Sun Closed</div>
+  </div>
+</div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Fairfield's Premier Nail & Spa Experience</h1>
-            <p>Quality natural nail care, builder gel, custom acrylic sets, and soothing spa pedicures in Fairfield, CA.</p>
-            <a href="services.html" class="btn-book" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Explore Our Services</a>
-        </div>
-    </section>
+<header class="site-header">
+  <nav class="navbar">
+    <a href="#home" class="logo">MC <em>Nails</em> &amp; Spa <small>Fairfield, California</small></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Visit</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:7074292205" class="call-pill">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (707) 429-2205
+      </a>
+      <a href="tel:7074292205" class="btn btn-primary btn-sm"><span>Book Appointment</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
 
-    <!-- WHY CHOOSE US -->
-    <section>
-        <h2 class="section-title">Why Choose MC Nails & Spa?</h2>
-        <div class="highlights-grid">
-            <div class="feature-card">
-                <h3>🎨 Custom Hand-Painted Art</h3>
-                <p>From clean minimalist lines to intricate 3D character art, we bring your nail design inspiration to life.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🛡️ 7-Day Guarantee</h3>
-                <p>We stand by the quality of our work. Enjoy a complimentary repair within 7 days for any application issues.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🧼 Hospital-Grade Hygiene</h3>
-                <p>Sanitized tools, single-use buffers and files, and a spotless sanctuary designed for your comfort and safety.</p>
-            </div>
-        </div>
-    </section>
+<main id="home">
 
-    <!-- GOOGLE MAPS LOCATION SECTION -->
-    <section class="map-section">
-        <h2 class="section-title">Find Us in Fairfield</h2>
-        <p>Located on 1916 N. Texas St in Fairfield, CA.</p>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.704324605269!2d-122.0339380328615!3d38.26316304859781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808515d3cac582b3%3A0x6a2d41027f7729a4!2sMC%20Nails%20%26%20Spa!5e0!3m2!1sen!2sus!4v1785994000794!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="eyebrow">Fairfield's Neighborhood Nail Studio</span>
+        <h1>Elevate your nail care <em>experience</em> in Fairfield</h1>
+        <p class="lede">Hand-finished manicures, restorative pedicures, and custom nail art in a calm, immaculately clean studio on N Texas St — no rush, just results that last.</p>
+        <div class="hero-cta">
+          <a href="tel:7074292205" class="btn btn-primary">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call to Book
+            </span>
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1916+N+Texas+St,+Fairfield,+CA+94533" target="_blank" rel="noopener" class="btn btn-outline">Get Directions</a>
         </div>
-    </section>
+        <div class="hero-meta">
+          <div>
+            <div class="k">Mon – Thu</div>
+            <div class="v">10:00 AM – 6:00 PM</div>
+          </div>
+          <div>
+            <div class="k">Fri – Sat</div>
+            <div class="v">9:00 AM – 6:00 PM</div>
+          </div>
+          <div>
+            <div class="k">Sunday</div>
+            <div class="v">Closed</div>
+          </div>
+          <div>
+            <div class="k">Walk-ins</div>
+            <div class="v">Always welcome, appointments preferred</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="blob"></div>
+        <div class="img-a"><img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b8f?q=80&w=900&auto=format&fit=crop" alt="Elegant nude and rose gold nail manicure"></div>
+        <div class="img-b"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=700&auto=format&fit=crop" alt="Clean, calming nail salon interior"></div>
+        <div class="ring"></div>
+        <div class="hero-badge"><span class="core">100% Sanitized Tools ✦ Every Visit</span></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>MC Nails & Spa</h4>
-                <p>Delivering high-quality nail treatments, relaxing spa pedicures, and custom nail designs to Fairfield and Solano County clients.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hours of Operation</h4>
-                <p>Mon – Thu: 10:00 AM – 6:00 PM</p>
-                <p>Friday: 9:00 AM – 6:00 PM</p>
-                <p>Saturday: 9:00 AM – 4:00 PM</p>
-                <p>Sunday: Closed</p>
-            </div>
-            <div class="footer-col">
-                <h4>Location & Contact</h4>
-                <p>📍 1916 N. Texas St, Fairfield, CA 94533</p>
-                <p>📞 (707) 429-2205</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 MC Nails & Spa. All rights reserved.</p>
-        </div>
-    </footer>
+  <div class="strip">
+    <div class="strip-track">
+      <span>Gel &amp; Dip Powder</span><span>French Ombre</span><span>Hot Stone Pedicures</span><span>Custom Nail Art</span><span>Waxing</span>
+      <span>Gel &amp; Dip Powder</span><span>French Ombre</span><span>Hot Stone Pedicures</span><span>Custom Nail Art</span><span>Waxing</span>
+    </div>
+  </div>
 
-</body>
-</html>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Services &amp; Pricing</span>
+        <h2>A menu built around your time</h2>
+        <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
+        <p>Every service starts with a consultation on shape, health, and finish — priced clearly, no surprises at checkout.</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="mani">Manicures</button>
+        <button class="tab-btn" data-tab="pedi">Pedicures</button>
+        <button class="tab-btn" data-tab="sets">Full Sets &amp; Acrylics</button>
+        <button class="tab-btn" data-tab="addons">Add-ons &amp; Waxing</button>
+      </div>
+
+      <div class="tab-panel active" id="mani">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div><div class="mi-name">Classic Manicure</div><div class="mi-desc">Shape, cuticle care, hand massage, and polish of your choice.</div></div>
+            <div class="mi-price">$25</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Gel Manicure</div><div class="mi-desc">Chip-resistant gel finish, cured for up to three weeks of shine.</div></div>
+            <div class="mi-price">$35</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Dip Powder Manicure</div><div class="mi-desc">Durable, lightweight powder system in a natural or bold finish.</div></div>
+            <div class="mi-price">$45</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="pedi">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div><div class="mi-name">Spa Pedicure</div><div class="mi-desc">Soak, shape, callus care, and a relaxing lower-leg massage.</div></div>
+            <div class="mi-price">$35</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Deluxe Pedicure</div><div class="mi-desc">Spa pedicure plus hot stone massage, sugar scrub, and a hydrating mask.</div></div>
+            <div class="mi-price">$65</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Gel Pedicure Upgrade</div><div class="mi-desc">Add long-lasting gel polish to any pedicure service.</div></div>
+            <div class="mi-price">+$15</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="sets">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div><div class="mi-name">Full Set Acrylic</div><div class="mi-desc">Sculpted acrylic extensions in your choice of length and shape.</div></div>
+            <div class="mi-price">$50</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Ombre / Baby Boomer</div><div class="mi-desc">Seamless gradient blend from a natural base into soft white tips.</div></div>
+            <div class="mi-price">$65</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Classic French Set</div><div class="mi-desc">Timeless white tip with a clean, hand-painted smile line.</div></div>
+            <div class="mi-price">$65</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Custom Nail Art Set</div><div class="mi-desc">Hand-painted design, chrome, or 3D accents — priced per nail.</div></div>
+            <div class="mi-price">from $70</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="addons">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div><div class="mi-name">Nail Repair</div><div class="mi-desc">Fix a crack, break, or lift without a full redo.</div></div>
+            <div class="mi-price">$8+</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Eyebrow Waxing</div><div class="mi-desc">Precise shape and clean-up with soothing after-care.</div></div>
+            <div class="mi-price">$15</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="mi-name">Lip / Chin Waxing</div><div class="mi-desc">Quick, gentle waxing for a smooth, clean finish.</div></div>
+            <div class="mi-price">$10</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-note">Prices reflect standard services and may vary with nail length, condition, or design complexity. Ask your technician for an exact quote.</p>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2>Clean by standard, not by chance</h2>
+        <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="num">01</div>
+          <h3>Hospital-Grade Sanitation</h3>
+          <p>Every tool is autoclaved or single-use, and every station is disinfected between guests.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">02</div>
+          <h3>Experienced Technicians</h3>
+          <p>Licensed nail artists trained in precision shaping, gel systems, and hand-painted art.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">03</div>
+          <h3>Walk-Ins Welcome</h3>
+          <p>Prefer to plan ahead? Call to book. Need something today? Just walk in.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="num">04</div>
+          <h3>Premium, Non-Toxic Products</h3>
+          <p>10-free polishes and low-odor systems that are gentler on your nails and lungs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Gallery</span>
+        <h2>A look inside MC Nails &amp; Spa</h2>
+        <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="gel">Gel</button>
+        <button class="filter-btn" data-filter="acrylic">Acrylics</button>
+        <button class="filter-btn" data-filter="pedi">Pedicures</button>
+        <button class="filter-btn" data-filter="studio">Studio</button>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item tall" data-cat="acrylic"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=700&auto=format&fit=crop" alt="French ombre acrylic nail set"><span class="g-tag">Acrylics</span></div>
+        <div class="g-item" data-cat="gel"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=700&auto=format&fit=crop" alt="Glossy gel manicure in nude tone"><span class="g-tag">Gel</span></div>
+        <div class="g-item" data-cat="pedi"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=700&auto=format&fit=crop" alt="Spa pedicure station with towels"><span class="g-tag">Pedicures</span></div>
+        <div class="g-item" data-cat="studio"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop" alt="Clean bright nail salon interior"><span class="g-tag">Studio</span></div>
+        <div class="g-item" data-cat="gel"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?q=80&w=700&auto=format&fit=crop" alt="Rose gold gel nail art"><span class="g-tag">Gel</span></div>
+        <div class="g-item tall" data-cat="pedi"><img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c1?q=80&w=700&auto=format&fit=crop" alt="Pedicure chairs in a calming spa"><span class="g-tag">Pedicures</span></div>
+        <div class="g-item" data-cat="acrylic"><img src="https://images.unsplash.com/photo-1610841097639-fc10ba22e990?q=80&w=700&auto=format&fit=crop" alt="Custom hand painted nail art design"><span class="g-tag">Acrylics</span></div>
+        <div class="g-item" data-cat="studio"><img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=700&auto=format&fit=crop" alt="Manicure station with soft lighting"><span class="g-tag">Studio</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Fairfield Loves Us</span>
+        <h2>What our guests are saying</h2>
+        <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
+      </div>
+      <div class="carousel">
+        <div class="review-slide active">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">The most relaxing pedicure I've had in Fairfield — spotless studio and the hot stone treatment melted all my stress away.</p>
+          <div class="review-author"><strong>Priya S.</strong> — Fairfield, CA</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">My ombre set lasted almost a month without a single chip. My technician nailed the shape I described on the first try.</p>
+          <div class="review-author"><strong>Denise R.</strong> — Fairfield, CA</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">Walked in on a Saturday with no wait and left with the cleanest gel manicure I've had. This is my new regular spot.</p>
+          <div class="review-author"><strong>Marisol T.</strong> — Fairfield, CA</div>
+        </div>
+        <div class="review-slide">
+          <div class="stars">★★★★★</div>
+          <p class="review-quote">You can tell the tools are sanitized properly and the staff genuinely cares about nail health, not just the polish.</p>
+          <div class="review-author"><strong>Angela W.</strong> — Fairfield, CA</div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Visit The Studio</span>
+        <h2>Find us on N Texas St</h2>
+        <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps?q=1916+N+Texas+St,+Fairfield,+CA+94533&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="MC Nails & Spa location map"></iframe>
+          </div>
+          <div class="info-card">
+            <div class="info-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><div class="label">Address</div><div class="value">1916 N Texas St, Fairfield, CA 94533</div></div>
+            </div>
+            <div class="info-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div><div class="label">Phone</div><div class="value"><a href="tel:7074292205">(707) 429-2205</a></div></div>
+            </div>
+            <div class="info-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div><div class="label">Hours</div>
+                <table class="hours-table" id="hoursTable">
+                  <tr data-days="1,2,3,4"><td>Monday – Thursday</td><td>10:00 AM – 6:00 PM</td></tr>
+                  <tr data-days="5,6"><td>Friday – Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+                  <tr data-days="0"><td>Sunday</td><td>Closed</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="hero-cta" style="margin-top:24px;">
