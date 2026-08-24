@@ -918,11 +918,11 @@
         <p>Every service starts with a consultation on shape, health, and finish — priced clearly, no surprises at checkout.</p>
       </div>
 
-      <div class="tabs" role="tablist">
-        <button class="tab-btn active" data-tab="mani">Manicures</button>
-        <button class="tab-btn" data-tab="pedi">Pedicures</button>
-        <button class="tab-btn" data-tab="sets">Full Sets &amp; Acrylics</button>
-        <button class="tab-btn" data-tab="addons">Add-ons &amp; Waxing</button>
+      <div class="tabs" role="tablist" id="tabsWrap">
+        <button type="button" class="tab-btn active" data-tab="mani">Manicures</button>
+        <button type="button" class="tab-btn" data-tab="pedi">Pedicures</button>
+        <button type="button" class="tab-btn" data-tab="sets">Full Sets &amp; Acrylics</button>
+        <button type="button" class="tab-btn" data-tab="addons">Add-ons &amp; Waxing</button>
       </div>
 
       <div class="tab-panel active" id="mani">
@@ -1043,11 +1043,11 @@
         <svg class="brush-underline" viewBox="0 0 180 18"><path d="M4 12 C 40 4, 80 18, 120 8 S 170 4, 176 10"/></svg>
       </div>
       <div class="filter-row">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="gel">Gel</button>
-        <button class="filter-btn" data-filter="acrylic">Acrylics</button>
-        <button class="filter-btn" data-filter="pedi">Pedicures</button>
-        <button class="filter-btn" data-filter="studio">Studio</button>
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="gel">Gel</button>
+        <button type="button" class="filter-btn" data-filter="acrylic">Acrylics</button>
+        <button type="button" class="filter-btn" data-filter="pedi">Pedicures</button>
+        <button type="button" class="filter-btn" data-filter="studio">Studio</button>
       </div>
       <div class="gallery-grid">
         <div class="g-item tall" data-cat="acrylic"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=700&auto=format&fit=crop" alt="French ombre acrylic nail set"><span class="g-tag">Acrylics</span></div>
@@ -1130,3 +1130,233 @@
             </div>
           </div>
           <div class="hero-cta" style="margin-top:24px;">
+            <a href="tel:7074292205" class="btn btn-primary"><span>Book Appointment</span></a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=1916+N+Texas+St,+Fairfield,+CA+94533" target="_blank" rel="noopener" class="btn btn-outline">Get Directions</a>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 style="font-size:22px;">Send a quick inquiry</h3>
+          <p style="font-size:13.5px;color:var(--charcoal-soft);margin-top:8px;">Prefer to plan ahead? Send your details and we'll confirm your slot by phone or text.</p>
+          <form id="inquiryForm" style="margin-top:24px;">
+            <div class="form-two">
+              <div class="form-row">
+                <label for="fname">First Name</label>
+                <input id="fname" name="fname" type="text" placeholder="Jane" required>
+              </div>
+              <div class="form-row">
+                <label for="fphone">Phone</label>
+                <input id="fphone" name="fphone" type="tel" placeholder="(707) 555-0123" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="fservice">Service Interested In</label>
+              <select id="fservice" name="fservice">
+                <option>Manicure</option>
+                <option>Pedicure</option>
+                <option>Full Set / Acrylics</option>
+                <option>Nail Art</option>
+                <option>Waxing</option>
+                <option>Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="fmsg">Message</label>
+              <textarea id="fmsg" name="fmsg" rows="4" placeholder="Preferred day/time, nail length, or design ideas..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><span>Send Inquiry</span></button>
+            <div class="form-success" id="formSuccess">Thank you — we'll reach out shortly to confirm your visit. For faster booking, call (707) 429-2205.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MC <em>Nails</em> &amp; Spa</div>
+        <p>A clean, calming nail studio in Fairfield, CA — dedicated to healthy nails, careful technique, and a little bit of quiet.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services &amp; Pricing</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li>1916 N Texas St</li>
+          <li>Fairfield, CA 94533</li>
+          <li><a href="tel:7074292205">(707) 429-2205</a></li>
+          <li>Walk-ins Welcome</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Emergency / Same-Day Booking</h4>
+        <div class="emergency-line">
+          Need a fix before an event? Call our priority line.
+          <strong><a href="tel:7074292205">(707) 429-2205</a></strong>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> MC Nails &amp; Spa. All rights reserved.</span>
+      <span>Fairfield, California</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta-bar">
+  <div class="row">
+    <a href="tel:7074292205" class="call">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Now
+    </a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=1916+N+Texas+St,+Fairfield,+CA+94533" target="_blank" rel="noopener" class="dir">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Directions
+    </a>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Live open/closed status + highlight today's row (times in salon's local time)
+  (function(){
+    const HOURS = {
+      0: null,            // Sunday - closed
+      1: [10, 18],         // Monday
+      2: [10, 18],         // Tuesday
+      3: [10, 18],         // Wednesday
+      4: [10, 18],         // Thursday
+      5: [9, 18],          // Friday
+      6: [9, 18]           // Saturday
+    };
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours() + now.getMinutes() / 60;
+    const todayHours = HOURS[day];
+    const isOpen = todayHours && hour >= todayHours[0] && hour < todayHours[1];
+
+    function fmt(h){
+      const period = h >= 12 ? 'PM' : 'AM';
+      let hr = h % 12;
+      if (hr === 0) hr = 12;
+      return hr + ':00 ' + period;
+    }
+
+    const topbarStatus = document.getElementById('topbarStatus');
+    if (topbarStatus){
+      if (todayHours){
+        topbarStatus.textContent = (isOpen ? 'Open Now · ' : 'Closed Now · Today ') + fmt(todayHours[0]) + ' – ' + fmt(todayHours[1]);
+      } else {
+        topbarStatus.textContent = 'Closed Today · Reopens Monday 10 AM';
+      }
+    }
+
+    const hoursTable = document.getElementById('hoursTable');
+    if (hoursTable){
+      hoursTable.querySelectorAll('tr').forEach(row => {
+        const days = row.dataset.days.split(',').map(Number);
+        if (days.includes(day)) row.classList.add('today');
+      });
+    }
+  })();
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  }));
+
+  // Services tabs (event delegation — works reliably on touch devices)
+  const tabsWrap = document.getElementById('tabsWrap');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  if (tabsWrap) {
+    tabsWrap.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      tabsWrap.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById(btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  }
+
+  // Gallery filter (event delegation)
+  const filterRow = document.querySelector('.filter-row');
+  const gItems = document.querySelectorAll('.g-item');
+  if (filterRow) {
+    filterRow.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filterRow.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      gItems.forEach(item => {
+        item.classList.toggle('hide', f !== 'all' && item.dataset.cat !== f);
+      });
+    });
+  }
+
+  // Testimonial carousel
+  const slides = document.querySelectorAll('.review-slide');
+  const dotsWrap = document.getElementById('carouselDots');
+  let current = 0;
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+  function goTo(i){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  setInterval(() => goTo((current + 1) % slides.length), 5500);
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal, .section-head');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Inquiry form (front-end only demo)
+  const form = document.getElementById('inquiryForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    success.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
