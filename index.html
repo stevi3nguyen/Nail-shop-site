@@ -1132,20 +1132,23 @@
         <div class="form-card">
           <h3 style="font-size:22px;">Send a quick inquiry</h3>
           <p style="font-size:13.5px;color:var(--charcoal-soft);margin-top:8px;">Prefer to plan ahead? Send your details and we'll confirm your slot by phone or text.</p>
-          <form id="inquiryForm" style="margin-top:24px;">
+          <form id="inquiryForm" style="margin-top:24px;" action="https://formsubmit.co/ajax/stevienguyen08@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Inquiry — MC Nails & Spa Website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <div class="form-two">
               <div class="form-row">
                 <label for="fname">First Name</label>
-                <input id="fname" name="fname" type="text" placeholder="Jane" required>
+                <input id="fname" name="First Name" type="text" placeholder="Jane" required>
               </div>
               <div class="form-row">
                 <label for="fphone">Phone</label>
-                <input id="fphone" name="fphone" type="tel" placeholder="(707) 555-0123" required>
+                <input id="fphone" name="Phone" type="tel" placeholder="(707) 555-0123" required>
               </div>
             </div>
             <div class="form-row">
               <label for="fservice">Service Interested In</label>
-              <select id="fservice" name="fservice">
+              <select id="fservice" name="Service Interested In">
                 <option>Manicure</option>
                 <option>Pedicure</option>
                 <option>Full Set / Acrylics</option>
@@ -1156,10 +1159,11 @@
             </div>
             <div class="form-row">
               <label for="fmsg">Message</label>
-              <textarea id="fmsg" name="fmsg" rows="4" placeholder="Preferred day/time, nail length, or design ideas..."></textarea>
+              <textarea id="fmsg" name="Message" rows="4" placeholder="Preferred day/time, nail length, or design ideas..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary"><span>Send Inquiry</span></button>
+            <button type="submit" class="btn btn-primary"><span id="submitLabel">Send Inquiry</span></button>
             <div class="form-success" id="formSuccess">Thank you — we'll reach out shortly to confirm your visit. For faster booking, call (707) 429-2205.</div>
+            <div class="form-success" id="formError" style="color:#B23B3B;display:none;">Something went wrong sending your inquiry. Please call us directly at (707) 429-2205.</div>
           </form>
         </div>
       </div>
@@ -1335,14 +1339,39 @@
   }, { threshold: 0.2 });
   revealEls.forEach(el => io.observe(el));
 
-  // Inquiry form (front-end only demo)
+  // Inquiry form — submits to FormSubmit via AJAX (no page reload)
   const form = document.getElementById('inquiryForm');
   const success = document.getElementById('formSuccess');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    success.style.display = 'block';
-    form.reset();
-  });
+  const errorMsg = document.getElementById('formError');
+  const submitLabel = document.getElementById('submitLabel');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      success.style.display = 'none';
+      errorMsg.style.display = 'none';
+      const originalLabel = submitLabel.textContent;
+      submitLabel.textContent = 'Sending…';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (response.ok) {
+          success.style.display = 'block';
+          form.reset();
+        } else {
+          errorMsg.style.display = 'block';
+        }
+      } catch (err) {
+        errorMsg.style.display = 'block';
+      } finally {
+        submitLabel.textContent = originalLabel;
+      }
+    });
+  }
 </script>
 
 </body>
