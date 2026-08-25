@@ -1132,10 +1132,11 @@
         <div class="form-card">
           <h3 style="font-size:22px;">Send a quick inquiry</h3>
           <p style="font-size:13.5px;color:var(--charcoal-soft);margin-top:8px;">Prefer to plan ahead? Send your details and we'll confirm your slot by phone or text.</p>
-          <form id="inquiryForm" style="margin-top:24px;" action="https://formsubmit.co/ajax/stevienguyen08@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Inquiry — MC Nails & Spa Website">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+          <form id="inquiryForm" style="margin-top:24px;" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="0602ae00-ed17-46f8-bdee-28c68c8b2923">
+            <input type="hidden" name="subject" value="New Inquiry — MC Nails & Spa Website">
+            <input type="hidden" name="from_name" value="MC Nails & Spa Website">
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
             <div class="form-two">
               <div class="form-row">
                 <label for="fname">First Name</label>
@@ -1339,7 +1340,7 @@
   }, { threshold: 0.2 });
   revealEls.forEach(el => io.observe(el));
 
-  // Inquiry form — submits to FormSubmit via AJAX (no page reload)
+  // Inquiry form — submits to Web3Forms via AJAX (no page reload)
   const form = document.getElementById('inquiryForm');
   const success = document.getElementById('formSuccess');
   const errorMsg = document.getElementById('formError');
@@ -1359,13 +1360,18 @@
           headers: { 'Accept': 'application/json' },
           body: new FormData(form)
         });
-        if (response.ok) {
+        let result = null;
+        try { result = await response.json(); } catch (parseErr) { /* non-JSON response */ }
+
+        if (response.ok && result && result.success) {
           success.style.display = 'block';
           form.reset();
         } else {
+          console.error('Form submission failed:', response.status, result);
           errorMsg.style.display = 'block';
         }
       } catch (err) {
+        console.error('Form submission error:', err);
         errorMsg.style.display = 'block';
       } finally {
         submitLabel.textContent = originalLabel;
